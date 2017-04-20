@@ -1,0 +1,14 @@
+{
+  "name": "underscore-privates-tslint-rule",
+  "version": "0.1.0",
+  "author": {
+    "name": "Daniel Rosenwasser",
+    "url": "https://github.com/DanielRosenwasser"
+  },
+  "dependencies": {
+    "tslint": "^5.1.0",
+    "typescript": "^2.2.2"
+  },
+  "main": "./lib/underscorePrivatesRule.js",
+  "types": "./lib/underscorePrivatesRule.d.ts"
+}

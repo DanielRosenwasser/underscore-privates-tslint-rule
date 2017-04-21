@@ -3,10 +3,11 @@ import * as ts from "typescript";
 
 const UNDERSCORE = "_".charCodeAt(0);
 
-type RelevantClassMember = ts.MethodDeclaration
-                         | ts.PropertyDeclaration
-                         | ts.GetAccessorDeclaration
-                         | ts.SetAccessorDeclaration;
+type RelevantClassMember =
+    | ts.MethodDeclaration
+    | ts.PropertyDeclaration
+    | ts.GetAccessorDeclaration
+    | ts.SetAccessorDeclaration;
 
 export class Rule extends Lint.Rules.AbstractRule {
     public static FAILURE_STRING = "private member's name must be prefixed with an underscore";
@@ -36,7 +37,7 @@ function checkNodeForViolations(ctx: Lint.WalkContext<void>, node: ts.Node): voi
         return;
     }
 
-    if (!nameStartsWithUnderscore(name.text) && Lint.hasModifier(node.modifiers, ts.SyntaxKind.PrivateKeyword)) {
+    if (!nameStartsWithUnderscore(name.text) && memberIsPrivate(node)) {
         ctx.addFailureAtNode(name, Rule.FAILURE_STRING);
     }
 }
@@ -57,8 +58,8 @@ function nameStartsWithUnderscore(text: string) {
     return text.charCodeAt(0) === UNDERSCORE;
 }
 
-function declarationIsPrivate(text: string) {
-    return text.charCodeAt(0) === UNDERSCORE;
+function memberIsPrivate(node: ts.Declaration) {
+    return Lint.hasModifier(node.modifiers, ts.SyntaxKind.PrivateKeyword);
 }
 
 function nameIsIdentifier(node: ts.Node): node is ts.Identifier {

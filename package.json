@@ -6,9 +6,10 @@
     "url": "https://github.com/DanielRosenwasser"
   },
   "dependencies": {
+    "tslib": "^1.6.1",
     "tslint": "^5.1.0",
     "typescript": "^2.2.2"
   },
-  "main": "./lib/underscorePrivatesRule.js",
-  "types": "./lib/underscorePrivatesRule.d.ts"
+  "main": "./underscorePrivatesRule.js",
+  "types": "./underscorePrivatesRule.d.ts"
 }

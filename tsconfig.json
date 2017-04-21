@@ -2,17 +2,23 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es5",
-        "outDir": "lib",
+        "lib": [
+            "esnext"
+        ],
+        "outDir": "./",
+        "importHelpers": true,
         "noImplicitAny": true,
         "strictNullChecks": true,
         "noImplicitThis": true,
         "alwaysStrict": true,
         "noImplicitReturns": true,
         "noEmitOnError": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
         "sourceMap": true,
         "declaration": true
     },
-    "include": [
-        "./src"
+    "files": [
+        "./src/underscorePrivatesRule.ts"
     ]
 }

@@ -1,2 +1,6 @@
 lib/
 node_modules/
+
+underscorePrivatesRule.js
+underscorePrivatesRule.js.map
+underscorePrivatesRule.d.ts
